@@ -16,12 +16,15 @@
 
 
 Navigate to the project directory:
+```bash
 cd RBAC
 
 Install dependencies:
+```bash
 npm install
 
 To start the application:
+```bash
 npm run dev 
 
 
@@ -57,6 +60,12 @@ Sidebar Navigation:
 
 
 ## Sreenshots:
+![Users section](".rbac2\public\UserSectionn.png")
+![UserEdit]("rbac2\public\userEditt.png")
+![search]("rbac2\public\Search.png")
+![roleCtegory]("rbac2\public\roleCategory.png")
+![Permissions]("rbac2\public\permissions.png")
+![leads]("rbac2\public\leads.png")
 
 
 ## Author
