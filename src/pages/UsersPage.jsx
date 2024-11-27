@@ -43,7 +43,7 @@ const RoleCard = ({ title, count, authorityLevel }) => {
   );
 };
 
-const UserRow = ({ user, onToggleStatus, onEdit, onDelete }) => {
+const UserRow = ({ user, onToggleStatus, onEdit, onDelete, currentUserRole }) => {
   const getInitials = (name) => {
     return name
       .split(' ')
@@ -62,9 +62,11 @@ const UserRow = ({ user, onToggleStatus, onEdit, onDelete }) => {
     return styles[role] || 'bg-gray-100 text-gray-600';
   };
 
+  // Conditionally render based on role (only Admin can edit/delete)
+  const canEditOrDelete = currentUserRole === 'Administrator';
+
   return (
     <tr className="border-b">
-
       <td className="py-4">
         <div className="flex items-center">
           <div className={`w-8 h-8 rounded-full flex items-center justify-center ${getRoleStyles(user.role)}`}>
@@ -93,23 +95,30 @@ const UserRow = ({ user, onToggleStatus, onEdit, onDelete }) => {
       </td>
       <td className="py-4">
         <div className="flex gap-2">
-          <button onClick={() => onEdit(user)} className="text-gray-400 hover:text-gray-600">
-            <Edit2 size={18} />
-          </button>
-          <button onClick={() => onDelete(user.id)} className="text-gray-400 hover:text-red-600">
-            <Trash2 size={18} />
-          </button>
+          {/* Show Edit and Delete only for Admin */}
+          {canEditOrDelete && (
+            <>
+              <button onClick={() => onEdit(user)} className="text-gray-400 hover:text-gray-600">
+                <Edit2 size={18} />
+              </button>
+              <button onClick={() => onDelete(user.id)} className="text-gray-400 hover:text-red-600">
+                <Trash2 size={18} />
+              </button>
+            </>
+          )}
         </div>
       </td>
     </tr>
   );
 };
-
 const UsersPage = () => {
   const { users, setUsers, deleteUser } = useUsers();
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedRole, setSelectedRole] = useState('');
   const [editingUser, setEditingUser] = useState(null);
+
+  // Assume the current user role comes from the authentication context
+  const currentUserRole = 'Administrator'; // This should be dynamically retrieved from context or state
 
   const roles = {
     'Administrator': { authorityLevel: 100 },
@@ -193,7 +202,6 @@ const UsersPage = () => {
           <table className="w-full">
             <thead>
               <tr className="border-b text-left text-gray-500">
-                
                 <th className="py-4">Name</th>
                 <th className="py-4">Role</th>
                 <th className="py-4">Last Login</th>
@@ -209,6 +217,7 @@ const UsersPage = () => {
                   onToggleStatus={toggleUserStatus}
                   onEdit={handleEdit}
                   onDelete={handleDelete}
+                  currentUserRole={currentUserRole} // Pass the current role
                 />
               ))}
             </tbody>
