@@ -29,7 +29,7 @@ const LeadsPage = () => {
                 {/* Sample lead data */}
                 <tr className="border-b">
                   <td className="py-4">Karan Arjun</td>
-                  <td className="py-4">KA@example.com</td>
+                  <td className="py-4">ka@example.com</td>
                   <td className="py-4">
                     <span className="px-3 py-1 bg-green-100 text-green-600 rounded-full text-sm">
                       Active

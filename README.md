@@ -1,12 +1,69 @@
-<<<<<<< HEAD
-# React + Vite
+<h1 align="center">Welcome to rbac2 👋</h1>
+<p>
+  <a href="https://www.npmjs.com/package/rbac2" target="_blank">
+    <img alt="Version" src="https://img.shields.io/npm/v/rbac2.svg">
+  </a>
+</p>
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+>  a Role-Based Access Control (RBAC) User Interface.An administrative dashboard that allows easy management and control of various system functions. Built with React and styled using Tailwind CSS, the project is designed to provide a clean, responsive, and intuitive user interface for users to manage roles, permissions, leads, and view system dashboards.
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-=======
-# RBAC
->>>>>>> f7e00def4601618975c904ad95db6e09cbc7871b
+## Installation
+
+1. Clone the repository:
+   ```bash
+   git clone <repository-url>
+
+
+Navigate to the project directory:
+cd RBAC
+
+Install dependencies:
+npm install
+
+To start the application:
+npm run dev 
+
+
+## Usage
+
+How to Use the Project
+
+Users Management:
+
+-Navigate to the Users section to view and manage users.
+-The Role Cards display the number of users in each role. If a user is deleted, the role card count updates automatically.
+-Each role card has a Settings option that allows you to manage the permissions for that specific role.
+
+
+User Actions:
+
+-You can delete users from the user list.
+-A Status toggle is available to activate or deactivate users.
+
+
+Search and Filters:
+-The application provides search filters that allow you to filter users by name and role.
+
+Permissions Management:
+-Navigate to the Permissions section to manage user permissions and assign specific permissions to roles.
+
+
+Sidebar Navigation:
+
+-The Dashboard and Leads sections are easily accessible from the sidebar. along with the other sections
+-The sidebar is collapsible, providing a cleaner interface when needed.
+
+
+
+## Sreenshots:
+
+
+## Author
+
+👤 **Khushi Parekh**
+
+
+
+
+
